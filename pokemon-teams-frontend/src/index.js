@@ -73,17 +73,18 @@ function createTeamsList(teams) {
               body: JSON.stringify({trainer_id: trainerId})
                 })
               .then(response => response.json())
-              .then(pokemon => {
-                  const addedLi = document.createElement('li')
-                  addedLi.innerHTML = `${pokemon.nickname} (${pokemon.species})`
-                  trainerDivUl.appendChild(addedLi)
-                  const newRelease = document.createElement('button')
-                  newRelease.className = "release"
-                  newRelease.innerHTML = "Release"
-                  newRelease.setAttribute('data-pokemon-id', `${pokemon.id}`);
-                  addedLi.appendChild(newRelease)
+              .then(pokemon => console.log(pokemon))
+            //       
+            //       const addedLi = document.createElement('li')
+            //       addedLi.innerHTML = `${pokemon.nickname} (${pokemon.species})`
+            //       trainerDivUl.appendChild(addedLi)
+            //       const newRelease = document.createElement('button')
+            //       newRelease.className = "release"
+            //       newRelease.innerHTML = "Release"
+            //       newRelease.setAttribute('data-pokemon-id', `${pokemon.id}`);
+            //       addedLi.appendChild(newRelease)
               
-                 })
+            //      })
                  .catch(function(error) {
                   console.log(error);
               })
