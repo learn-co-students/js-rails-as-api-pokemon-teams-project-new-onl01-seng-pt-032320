@@ -37,7 +37,7 @@ function createTeamsList(teams) {
            li.innerHTML = `${pokemon.nickname} (${pokemon.species})`
            const release = document.createElement("button")
            release.className = "release"
-           release.setAttribute = ("data-pokemon-id", `${pokemon.id}`)
+           release.setAttribute("data-pokemon-id", `${pokemon.id}`)
            release.innerHTML = "Release"
            li.appendChild(release)
            ul.appendChild(li)
@@ -73,18 +73,18 @@ function createTeamsList(teams) {
               body: JSON.stringify({trainer_id: trainerId})
                 })
               .then(response => response.json())
-              .then(pokemon => console.log(pokemon))
-            //       
-            //       const addedLi = document.createElement('li')
-            //       addedLi.innerHTML = `${pokemon.nickname} (${pokemon.species})`
-            //       trainerDivUl.appendChild(addedLi)
-            //       const newRelease = document.createElement('button')
-            //       newRelease.className = "release"
-            //       newRelease.innerHTML = "Release"
-            //       newRelease.setAttribute('data-pokemon-id', `${pokemon.id}`);
-            //       addedLi.appendChild(newRelease)
+              .then(pokemon => {
+                  
+                  const addedLi = document.createElement('li')
+                  addedLi.innerHTML = `${pokemon.nickname} (${pokemon.species})`
+                  trainerDivUl.appendChild(addedLi)
+                  const newRelease = document.createElement('button')
+                  newRelease.className = "release"
+                  newRelease.innerHTML = "Release"
+                  newRelease.setAttribute('data-pokemon-id', `${pokemon.id}`);
+                  addedLi.appendChild(newRelease)
               
-            //      })
+                 })
                  .catch(function(error) {
                   console.log(error);
               })
@@ -99,7 +99,7 @@ function createTeamsList(teams) {
         fetch(`${POKEMONS_URL}/${pokemonId}`, {
         method: 'DELETE',
         })
-        .then(response => response.json()) 
+        .then(response => response.json())
         .then(response => {
             event.target.parentElement.remove()
             console.log(response)

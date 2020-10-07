@@ -9,13 +9,13 @@ class PokemonsController < ApplicationController
         name = Faker::Name.first_name
         species = Faker::Games::Pokemon.name
         pokemon = Pokemon.create(nickname: name, species: species, trainer_id: pokemon_params[:trainer_id])
-        binding.pry
+        render json: pokemon, include: [:trainer], except: [:created_at, :updated_at]
     end 
 
     def destroy
-        pokemon = Pokemon.find_by_id(params[:pokemon_id])
-        binding.pry
-        pokemon.destroy
+        pokemon = Pokemon.find_by(id: params[:id])
+        # binding.pry
+        pokemon.delete
         
     end
 
