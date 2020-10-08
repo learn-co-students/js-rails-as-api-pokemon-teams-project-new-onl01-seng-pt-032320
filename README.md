@@ -296,3 +296,5 @@ DELETE /pokemons/:pokemon_id
   "trainer_id":1
 }
 ```
+
+(Done with lab, but won't submit properly.)
